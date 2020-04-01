@@ -6,6 +6,7 @@ class CircleLoss(Model):
 	keras Model classs in tf2. Inputs is a list of three tensors, the first
 	one contains the positive feature samples, the second contains the negative
 	feature samples, and the third contains the query feartures. """
+	
     def __init__(self, scale=32, margin=0.25, similarity='dot', **kwargs):
         self.scale = scale
         self.margin = margin
