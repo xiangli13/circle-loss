@@ -30,7 +30,7 @@ class CircleLoss(Model):
         alpha_p = K.relu(-sim_p + 1 + self.margin)
         alpha_n = K.relu(sim_n + self.margin)
         margin_p = 1 - self.margin
-        margin_n = self.margin
+        margin_n = -self.margin
         loss_p = K.mean(K.sum(K.exp(-self.scale * alpha_p * (sim_p - margin_p)), axis=1))
         loss_n = K.mean(K.sum(K.exp(self.scale * alpha_n * (sim_n - margin_n)), axis=1))
         return K.log(1 + loss_p * loss_n)
